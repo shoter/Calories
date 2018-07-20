@@ -5,6 +5,6 @@ module.exports = {
     "^.+\\.tsx?$": "ts-jest"
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
-  testMatch: [ "**/__tests__/**/*.ts?(x)", "**/?(*.)+(spec|test).ts?(x)" ]
+  testRegex:  "tests/.*\\.test.tsx?" 
   // ...
 };
