@@ -1,0 +1,47 @@
+{
+  "name": "calories.web",
+  "version": "0.0.1",
+  "description": "Calories web ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config jest.config.js",
+    "start": "webpack-dev-server --open",
+    "dev-server": "webpack-dev-server --progress --hot --inline --color --config ./webpack.dev.config.js",
+    "dev": "webpack --watch --progress --color --config ./webpack.dev.config.js",
+    "compile": "webpack --config ./webpack.production.config.js"
+  },
+  "keywords": [
+    "calories",
+    "web"
+  ],
+  "author": "Shoter",
+  "license": "MIT",
+  "dependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/chai-enzyme": "^0.6.4",
+    "@types/enzyme": "^3.1.12",
+    "@types/jest": "^23.3.0",
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "awesome-typescript-loader": "^5.2.0",
+    "chai": "^4.1.2",
+    "chai-enzyme": "^1.0.0-beta.1",
+    "cheerio": "^1.0.0-rc.2",
+    "css-loader": "^1.0.0",
+    "enzyme": "^3.3.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.4.1",
+    "jest-config": "^23.4.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "sass-loader": "^7.0.3",
+    "source-map-loader": "^0.2.3",
+    "webpack": "^4.16.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "devDependencies": {
+    "typescript": "^2.9.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
