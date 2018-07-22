@@ -1,0 +1,28 @@
+@import "./defines.scss";
+@import "./dayOverview.scss";
+
+$componentBackground: rgb(40,40,40);
+$componentFontColor: rgb(230,230,230);
+
+.dashboardComponent
+{
+    background-color: darken($componentBackground, 5%);
+    color: $componentFontColor;
+
+    border: 1px solid darken($componentFontColor, 60%);
+    
+    .title
+    {
+        font-size: large;
+        background-color: $backgroundColor;
+        color: $fontColor;
+        padding: 0.2rem 0.4rem;
+        border-bottom: 1px solid rgba(darken($componentFontColor, 40%), 0.2);
+    }
+
+    .body
+    {
+       padding: 0.2rem 0.4rem; 
+        min-height:50px;
+    }
+}

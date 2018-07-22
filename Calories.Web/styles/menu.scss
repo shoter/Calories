@@ -1,0 +1,52 @@
+@import "./defines.scss";
+nav
+{
+    background-color: $backgroundColor;
+    color: $fontColor;
+    height:100%;
+
+    &.expanded
+    {
+        width:10vw;
+        
+
+        .element
+        {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            display: block;
+            &:hover{
+                background-color: $backgroundColorHover;
+            }
+
+            &.active, &:active{
+                background-color: $backgroundColorActive
+            }
+
+            
+        }
+
+        a{
+            padding: 0rem 0.5rem;
+            font-size: large;
+            text-decoration: none;
+
+            &:link, &:visited
+            {
+                color: $fontColor;
+            }
+
+            &:hover
+            {
+                color: darken($fontColor, 10%);
+            }
+
+            &:active
+            {
+                color: lighten($fontColor, 10%);
+            }
+        }
+    }
+    
+
+}

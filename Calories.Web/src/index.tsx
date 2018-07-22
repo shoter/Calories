@@ -1,6 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Dupa from "./Dupa"
+import App from "./App"
+import {BrowserRouter} from "react-router-dom"
 require("../styles/main.scss");
 
-ReactDOM.render(<Dupa message="Siema eniu" />, document.getElementById("root")); 
+
+ReactDOM.render(
+(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+), document.getElementById("root")); 

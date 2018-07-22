@@ -56,6 +56,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, "/build"),
+        historyApiFallback: true,
         before: function (app) {},
         after: function (app) {
 
