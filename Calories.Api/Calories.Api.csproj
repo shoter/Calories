@@ -11,7 +11,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Ninject" Version="3.3.4" />
-    <PackageReference Include="Ninject.Web.Common.WebHost" Version="3.3.1" />
   </ItemGroup>
 
   <ItemGroup>

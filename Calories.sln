@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calories.Api", "Calories.Api\Calories.Api.csproj", "{9DB4A597-6D2C-4E6F-9DC5-1F06367F7F8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calories.Api", "Calories.Api\Calories.Api.csproj", "{9DB4A597-6D2C-4E6F-9DC5-1F06367F7F8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calories.Database", "Calories.Database\Calories.Database.csproj", "{A849B7B8-0584-4266-A383-8DD89D8F3FED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calories.Database", "Calories.Database\Calories.Database.csproj", "{A849B7B8-0584-4266-A383-8DD89D8F3FED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calories.Common", "Calories.Common\Calories.Common.csproj", "{787BC72F-1075-471F-A707-2F019F5513E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calories.Common", "Calories.Common\Calories.Common.csproj", "{787BC72F-1075-471F-A707-2F019F5513E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calories.Services", "Calories.Services\Calories.Services.csproj", "{C4362E63-99F5-4F08-91AE-61B7377DE132}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "C-Common\Common.csproj", "{7833DE49-4309-4C54-BD72-EA7B9F99F71F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calories.Services", "Calories.Services\Calories.Services.csproj", "{C4362E63-99F5-4F08-91AE-61B7377DE132}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,12 +42,6 @@ Global
 		{C4362E63-99F5-4F08-91AE-61B7377DE132}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4362E63-99F5-4F08-91AE-61B7377DE132}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{C4362E63-99F5-4F08-91AE-61B7377DE132}.Test|Any CPU.Build.0 = Debug|Any CPU
-		{7833DE49-4309-4C54-BD72-EA7B9F99F71F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7833DE49-4309-4C54-BD72-EA7B9F99F71F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7833DE49-4309-4C54-BD72-EA7B9F99F71F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7833DE49-4309-4C54-BD72-EA7B9F99F71F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7833DE49-4309-4C54-BD72-EA7B9F99F71F}.Test|Any CPU.ActiveCfg = Test|Any CPU
-		{7833DE49-4309-4C54-BD72-EA7B9F99F71F}.Test|Any CPU.Build.0 = Test|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
