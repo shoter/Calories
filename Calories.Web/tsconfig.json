@@ -58,6 +58,8 @@
     },
     "exclude" :[
         "./node_modules/*",
-        "./typescript-compiled/*"
+        "./typescript-compiled/*",
+        "./tests/*",
+        "./tests-compiled/*"
     ]
   }

@@ -6,8 +6,9 @@
     "declaration": true,                   
     "declarationMap": true,                
     "sourceMap": true,                     
-    "outDir": "../tests-compiled/",                        
-    "rootDir": "./",                       
+    "outDir": "./tests-compiled/",                        
+    "rootDir": "./",       
+    "sourceRoot": "./tests/",                         
     "composite": true,                     
     "strict": true,                           
     "noImplicitAny": true,                 
@@ -18,11 +19,12 @@
     "alwaysStrict": true,                  
     "skipLibCheck" : true,
     "moduleResolution": "node",            
-    "esModuleInterop": true,                  
-    "sourceRoot": "./src/"      
+    "esModuleInterop": true   
   },
   "exclude" :[
       "./node_modules/*",
-      "./typescript-compiled/*"
+      "./typescript-compiled/*",
+      "./tests-compiled/*",
+      "./build/*"
   ]
 }
