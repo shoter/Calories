@@ -18,4 +18,10 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Calories.Common\Calories.Common.csproj" />
+    <ProjectReference Include="..\Calories.Database\Calories.Database.csproj" />
+    <ProjectReference Include="..\Calories.Services\Calories.Services.csproj" />
+  </ItemGroup>
+
 </Project>

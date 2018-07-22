@@ -28,14 +28,15 @@ module.exports = {
                 use: [{
                     loader: "source-map-loader"
                 }]
-            }/*,
+            },
             {
                 test: /\.scss$/,
-                use: extract({
-                    fallback: 'style-loader',
-                    use: ["css-loader", "sass-loader"]
-                })
-            }*/
+                use: [
+                    "style-loader", // creates style nodes from JS strings
+                    "css-loader", // translates CSS into CommonJS
+                    "sass-loader" // compiles Sass to CSS
+                ]
+            }
         ]
     },
     resolve: {

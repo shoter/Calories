@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Calories.Common\Calories.Common.csproj" />
+  </ItemGroup>
+
 </Project>
