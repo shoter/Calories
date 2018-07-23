@@ -2,22 +2,8 @@ import React from "react";
 import { Dashboard } from "./Dashboard";
 
 
-namespace DashboardComponent
-{
-    export interface Props
-    {
-        columnSpan?: number,
-        rowSpan?: number
-        title?: string
-    }
 
-    export interface State{
-
-    }
-}
-
-
-abstract class DashboardComponent
+export abstract class DashboardComponent
 <
 TProps extends DashboardComponent.Props = DashboardComponent.Props,
 TState extends DashboardComponent.State = DashboardComponent.State
@@ -51,5 +37,3 @@ extends React.Component<TProps, TState>
     }
 }
 
-
-export default DashboardComponent;

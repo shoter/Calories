@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "./Menu";
 import {BrowserRouter, Route, Switch } from "react-router-dom";
 import About from "./About";
-import DashBoard from "./DashBoard/Dashboard";
+import { Dashboard } from "./DashBoard/Dashboard"; 
 
 export default class App extends React.Component
 {
@@ -22,7 +22,7 @@ export default class App extends React.Component
                 <Menu links={this.links} />
                 <div className="work">
                 <Switch>
-                    <Route exact path="/" component={DashBoard}></Route>
+                    <Route exact path="/" component={Dashboard}></Route>
                     <Route path="/about" component={About}></Route>
                 </Switch>
                 </div>

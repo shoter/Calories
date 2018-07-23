@@ -1,7 +1,7 @@
 import React from "react";
-import DashboardComponent from "./DashboardComponent";
+import { DashboardComponent } from "./DashboardComponent";
 
-export default class TestComponent extends DashboardComponent
+export class TestComponent extends DashboardComponent
 {
     constructor(props: DashboardComponent.Props)
     {

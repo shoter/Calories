@@ -1,15 +1,5 @@
 import React from "react";
-import DashboardComponent from "./DashboardComponent";
-
-namespace DayOverview
-{
-    export interface Props extends DashboardComponent.Props
-    {
-        calories: Number;
-        weight: Number;
-        date: Date;
-    }
-}
+import { DashboardComponent } from "./DashboardComponent";
 
 interface StatProps
 {
@@ -27,7 +17,7 @@ function Stat(props: StatProps) : JSX.Element
         )
     } 
 
-export default class DayOverview extends DashboardComponent<DayOverview.Props>
+export class DayOverview extends DashboardComponent<DayOverview.Props>
 {
     public static defaultProps : Partial<DayOverview.Props> = 
     {
@@ -41,7 +31,7 @@ export default class DayOverview extends DashboardComponent<DayOverview.Props>
 
     
 
-    renderComponent() : JSX.Element
+    renderComponent() : JSX.Element 
     {
         return (
             <div className="dayOverview">    

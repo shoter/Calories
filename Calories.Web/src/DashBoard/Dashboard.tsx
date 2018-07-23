@@ -1,20 +1,9 @@
 import React from "react";
-import TestComponent from "./TestComponent";
-import DayOverview from "./DayOverview";
-export namespace Dashboard
-{
-    export interface Props
-    {
+import { TestComponent } from "./TestComponent";
+import { DayOverview } from "./DayOverview"; 
 
-    }
 
-    export interface State
-    {
-        
-    }
-}
-
-class Dashboard extends React.Component<Dashboard.Props, Dashboard.State>
+export class Dashboard extends React.Component<Dashboard.Props, Dashboard.State>
 {
     constructor(props: Dashboard.Props)
     {
@@ -35,5 +24,3 @@ class Dashboard extends React.Component<Dashboard.Props, Dashboard.State>
         </div>) 
     }
 }
-
-export default Dashboard;
