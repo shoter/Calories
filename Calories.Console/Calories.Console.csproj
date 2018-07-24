@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
@@ -8,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Calories.Common\Calories.Common.csproj" />
     <ProjectReference Include="..\Calories.Database\Calories.Database.csproj" />
+    <ProjectReference Include="..\Calories.Data\Calories.Data.csproj" />
   </ItemGroup>
 
 

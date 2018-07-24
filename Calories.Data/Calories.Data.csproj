@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\C#\C-Sharp-Common-Standard\Common.Standard.csproj" />
     <ProjectReference Include="..\Calories.Common\Calories.Common.csproj" />
-    <ProjectReference Include="..\Calories.Database\Calories.Database.csproj" />
   </ItemGroup>
 
 
