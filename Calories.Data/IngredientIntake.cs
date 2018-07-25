@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Calories.Data
 {
-    public class IngredientIntake
+    public class IngredientIntake : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]

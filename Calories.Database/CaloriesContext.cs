@@ -14,7 +14,8 @@ namespace Calories.Database
         }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<IngredientIntake> IngredientIntakes { get; set; }
-
+        public DbSet<Weight> Weights { get; set; }
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured)

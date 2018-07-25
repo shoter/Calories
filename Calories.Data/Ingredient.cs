@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Calories.Data
 {
-    public class Ingredient
+    public class Ingredient : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]

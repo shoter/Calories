@@ -13,5 +13,9 @@
     <ProjectReference Include="..\Calories.Common\Calories.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 
 </Project>
