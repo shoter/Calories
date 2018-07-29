@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
     <PackageReference Include="Ninject" Version="3.3.4" />
   </ItemGroup>
 
@@ -19,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\C#\aspnet-core-additions\Aspnet.Additions.csproj" />
+    <ProjectReference Include="..\..\..\C#\C-Sharp-Common-Standard\Common.Standard.csproj" />
     <ProjectReference Include="..\Calories.Common\Calories.Common.csproj" />
     <ProjectReference Include="..\Calories.Database\Calories.Database.csproj" />
     <ProjectReference Include="..\Calories.Services\Calories.Services.csproj" />
