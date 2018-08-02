@@ -14,5 +14,13 @@ namespace Calories.Database.Repositories
         public WeightRepository(DbContext context) : base(context)
         {
         }
+
+        public async Task<IEnumerable<Weight>> GetPagedValues(int pageSize = 10, int pageNumber = 0)
+        {
+            return await OrderByDescending(w => w.Date)
+                   .Skip(pageNumber * pageSize)
+                   .Take(pageSize)
+                   .ToListAsync();
+        }
     }
 }

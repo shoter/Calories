@@ -14,5 +14,13 @@ namespace Calories.Database.Repositories
         public IngredientIntakeRepository(DbContext context) : base(context)
         {
         }
+
+        public async Task<IEnumerable<IngredientIntake>> Pagination(int pageSize = 10, int pageNumber = 0)
+        {
+            return await OrderByDescending(intake => intake.Date)
+                .Skip(pageSize * pageNumber)
+                .Take(pageSize)
+                .ToListAsync();
+        }
     }
 }

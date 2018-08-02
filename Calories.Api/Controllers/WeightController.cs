@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Aspnet.Additions.Controllers;
 using Aspnet.Additions.Models.Errors;
 using Calories.Api.ApiModels.Weights;
+using Calories.Data;
 using Calories.Database.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,13 +14,25 @@ using Microsoft.AspNetCore.Mvc;
 namespace Calories.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class WeightController : Controller
+    public class WeightController : BaseController
     {
         private readonly IUnitOfWork unit;
         public WeightController(IUnitOfWork unit)
         {
             this.unit = unit;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Get(int pageSize = 10, int pageNumber = 0)
+        {
+            IEnumerable<Weight> weights = await unit.WeightRepository.GetPagedValues(pageSize, pageNumber);
+
+            var vm = new WeightsListModel(weights);
+
+            return Json(vm);
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody]NewWeightApiModel weight)
         {
             if (ModelState.IsValid)
@@ -33,7 +47,7 @@ namespace Calories.Api.Controllers
                 return Ok();
             }
 
-            return BadRequest(new ValidationResultModel(ModelState));
+            return ValidationFailed();
         }
 
 

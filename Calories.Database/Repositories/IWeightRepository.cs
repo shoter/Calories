@@ -10,6 +10,6 @@ namespace Calories.Database.Repositories
 {
     public interface IWeightRepository : IRepository<Weight>
     {
-        
+        Task<IEnumerable<Weight>> GetPagedValues(int pageSize = 10, int pageNumber = 0);
     }
 }

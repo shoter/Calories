@@ -10,6 +10,6 @@ namespace Calories.Database.Repositories
 {
     public interface IIngredientIntakeRepository : IRepository<IngredientIntake>
     {
-        
+        Task<IEnumerable<IngredientIntake>> Pagination(int pageSize = 10, int pageNumber = 0);
     }
 }

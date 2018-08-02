@@ -10,6 +10,7 @@ namespace Calories.Database.Repositories
 {
     public interface IIngredientRepository : IRepository<Ingredient>
     {
-        
+        Task<Ingredient> GetIngredient(string name);
+        Task<IEnumerable<Ingredient>> GetIngredients(string name);
     }
 }
