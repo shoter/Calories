@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Calories.Api.Controllers
 {
+    [Route("api/[controller]")]
     public class IngredientIntakeController : BaseController
     {
         private readonly IUnitOfWork unit;
@@ -30,6 +31,7 @@ namespace Calories.Api.Controllers
                 });
 
                 await unit.SaveChangesAsync();
+                return Ok();
             }
 
             return ValidationFailed();

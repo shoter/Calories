@@ -22,5 +22,12 @@ namespace Calories.Database.Repositories
                    .Take(pageSize)
                    .ToListAsync();
         }
+
+        public async Task<Weight> GetWeightAtSpecifiedDate(DateTime date)
+        {
+            return await Where(w =>
+            w.Date.Year == date.Year && w.Date.Month == date.Month && w.Date.Day == date.Day)
+            .FirstOrDefaultAsync();
+        }
     }
 }

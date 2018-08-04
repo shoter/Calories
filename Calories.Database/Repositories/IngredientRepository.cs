@@ -24,7 +24,7 @@ namespace Calories.Database.Repositories
         {
             name = name.ToLower().Trim();
 
-            return await (await WhereAsync(ing => ing.Name.ToLower().Contains(name)))
+            return await Where(ing => ing.Name.ToLower().Contains(name))
                 .OrderBy(ing => ing.ID)
                 .Take(10)
                 .ToListAsync();

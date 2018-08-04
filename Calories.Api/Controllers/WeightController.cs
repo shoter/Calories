@@ -23,6 +23,7 @@ namespace Calories.Api.Controllers
         }
 
         [HttpGet]
+        [Route("{pageNumber:int}")]
         public async Task<IActionResult> Get(int pageSize = 10, int pageNumber = 0)
         {
             IEnumerable<Weight> weights = await unit.WeightRepository.GetPagedValues(pageSize, pageNumber);
@@ -30,6 +31,17 @@ namespace Calories.Api.Controllers
             var vm = new WeightsListModel(weights);
 
             return Json(vm);
+        }
+
+        [HttpGet("{date:DateTime}")]
+        public async Task<IActionResult> Get(DateTime date)
+        {
+            Weight weight = await unit.WeightRepository.GetWeightAtSpecifiedDate(date);
+
+            if (weight == null)
+                return NotFound();
+
+            return Ok(weight);
         }
 
         [HttpPost]
