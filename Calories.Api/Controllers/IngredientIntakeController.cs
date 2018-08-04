@@ -37,6 +37,7 @@ namespace Calories.Api.Controllers
             return ValidationFailed();
         }
         [HttpGet("Get")]
+        [Route("{pageNumber:int}")]
         public async Task<IActionResult> Pagination(int pageSize = 10, int pageNumber = 0)
         {
             var intakes = await unit.IngredientIntakeRepository
