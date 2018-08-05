@@ -45,14 +45,14 @@ namespace Calories.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]NewWeightApiModel weight)
+        public async Task<IActionResult> Post([FromBody]NewWeightApiModel data)
         {
             if (ModelState.IsValid)
             {
                 unit.WeightRepository.Add(new Data.Weight()
                 {
-                    Date = weight.Date.Value.ToUniversalTime(),
-                    Value = weight.Weight.Value
+                    Date = data.Date.Value.ToUniversalTime(),
+                    Value = data.Weight.Value
                 });
 
                 await unit.SaveChangesAsync();

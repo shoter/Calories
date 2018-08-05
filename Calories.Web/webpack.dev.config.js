@@ -6,7 +6,8 @@ module.exports = {
     mode: "development",
     target: "web",
     node: {
-        __dirname: true
+        __dirname: true,
+        fs: 'empty'
     },
     context: __dirname,
     // Enable sourcemaps for debugging webpack's output.
