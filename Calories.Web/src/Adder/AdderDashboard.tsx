@@ -11,7 +11,7 @@ export class AdderDashboard extends React.Component<AdderDashboard.Props, AdderD
     render()
     {
         return (
-            <div className="dashboard">
+            <div className="dashboard adder">
                 <WeightAddComponent />
             </div>
         )

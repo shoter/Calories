@@ -12,5 +12,7 @@ namespace Calories.Database.Repositories
     {
         Task<IEnumerable<Weight>> GetPagedValues(int pageSize = 10, int pageNumber = 0);
         Task<Weight> GetWeightAtSpecifiedDate(DateTime date);
+
+        Task<bool> HasWeightAtDay(DateTime date);
     }
 }

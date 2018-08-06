@@ -9,14 +9,14 @@ export class ApiBase {
     this.baseUrl = baseUrl;
   }
 
-  getUrl(): string {
-    return urljoin(this.baseUrl, "api", this.controllerName);
+  getUrl(...parts: string[]): string {
+    return urljoin(this.baseUrl,  "api", this.controllerName, ...parts);
   }
 
-  createBaseOptions(method: HttpMethod): Options {
+  createBaseOptions(method: HttpMethod, ...urlParts: string[]): Options {
     let options: Options = {
-      url: this.getUrl(),
-      method: "post"
+      url: this.getUrl(...urlParts),
+      method: method
     };
 
     if (method != HttpMethod.GET) options.json = true;

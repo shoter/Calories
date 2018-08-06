@@ -7,7 +7,8 @@ namespace WeightAddComponent
 
     export interface State extends DashboardComponent.State
     {
-        WeightInput: string,
-        Weight: Number
+        weightInput: string,
+        weight: Number,
+        hasWeightToday: Boolean
     }
 }

@@ -1,0 +1,22 @@
+@import "./weightAdd.scss";
+
+.dashboard.adder
+{
+    display: grid;
+
+    @include respond-to-only(tablet)
+    {
+        grid-template-columns: auto auto auto;
+    } 
+
+    @include respond-to-only(mobile)
+    {
+        grid-template-columns: auto auto;
+        grid-column-gap: 0;
+        grid-row-gap:1.5rem;
+    }
+
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+}

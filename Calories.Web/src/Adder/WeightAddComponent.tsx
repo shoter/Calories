@@ -15,8 +15,9 @@ export class WeightAddComponent extends DashboardComponent<
   constructor(props: WeightAddComponent.Props) {
     super(props);
     this.state = {
-      Weight: -1,
-      WeightInput : ""
+      weight: -1,
+      weightInput : "",
+      hasWeightToday : false
     };
     
     this.api = new WeightApi();
@@ -26,25 +27,25 @@ export class WeightAddComponent extends DashboardComponent<
     if(Number(event.target.value) > 0 == false)
     {
       this.setState({
-        Weight: -1
+        weight: -1
       })
       
       return;
     }
     this.setState({
-      Weight: Number(event.target.value),
-      WeightInput : event.target.value
+      weight: Number(event.target.value),
+      weightInput : event.target.value
     });
   }
 
   submit() {
-    if (this.state.Weight > 0 == false) {
+    if (this.state.weight > 0 == false) {
       alert("Wrong number!");
       return;
     }
 
     this.api.InsertWeight(
-      this.state.Weight,
+      this.state.weight,
       new Date()
     ).then(() => {
       alert("Inserted!");
@@ -53,15 +54,39 @@ export class WeightAddComponent extends DashboardComponent<
     })
 
     this.setState({
-      Weight: -1,
-      WeightInput : ""
+      weight: -1,
+      weightInput : ""
     });
+  }
+
+  componentDidMount() {
+    this.api.HasWeightToday()
+    .then((value : any) => {
+      let hasWeight: Boolean = JSON.parse(value);
+      if(hasWeight)
+        this.setState({
+          hasWeightToday: true
+        });
+        
+    });
+  }
+
+  HasWeightToday = (): JSX.Element => {
+    let text = "You have not weighted yourself today";
+    if(this.state.hasWeightToday)
+    {
+      text = "You have weight for today. Keep it up";
+    }
+
+    return (<div className="hasWeightToday">
+      {text}
+    </div>);
   }
 
   renderComponent(): JSX.Element {
     return (
-      <div className="Weight">
-        <input placeholder="Today's weight" value={this.state.WeightInput} onChange={this.onChange} />
+      <div className="weight">
+        <input placeholder="Today's weight" value={this.state.weightInput} onChange={this.onChange} />
         <button
           onClick={() => {
             this.submit();
@@ -69,6 +94,7 @@ export class WeightAddComponent extends DashboardComponent<
         >
           Submit
         </button>
+        <this.HasWeightToday />
       </div>
     );
   }

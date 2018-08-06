@@ -29,5 +29,14 @@ namespace Calories.Database.Repositories
             w.Date.Year == date.Year && w.Date.Month == date.Month && w.Date.Day == date.Day)
             .FirstOrDefaultAsync();
         }
+
+        public async Task<bool> HasWeightAtDay(DateTime date)
+        {
+            var day = date.Day;
+
+            return await AnyAsync(w =>
+            w.Date.Year == date.Year &&
+            w.Date.DayOfYear == date.DayOfYear);
+        }
     }
 }

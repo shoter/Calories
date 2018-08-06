@@ -62,6 +62,15 @@ namespace Calories.Api.Controllers
             return ValidationFailed();
         }
 
+        [HttpGet]
+        [Route("HasWeightToday")]
+        public async Task<IActionResult> HasWeightToday()
+        {
+            if (await unit.WeightRepository.HasWeightAtDay(DateTime.Now))
+                return Ok(true);
+            return Ok(false);
+        }
+
 
     }
 }

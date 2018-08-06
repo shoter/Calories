@@ -10,7 +10,7 @@ module.exports = {
       }
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, "ts", "tsx"],
-  testRegex: "/tests/Dupa\\.test.tsx"
+  testRegex: "/tests/[^^]*\\.test.tsx?"
  // testMatch: ["<rootDir>/tests/*.test.ts"]
  // testRegex:  "tests-compiled/.*\\.test.jsx?" 
   // ...

@@ -17,4 +17,10 @@ export class WeightApi extends CaloriesApiBase {
 
        return rp(options);
     }
+
+    HasWeightToday() : rp.RequestPromise<{}> {
+        let option: rp.Options = this.createBaseOptions(HttpMethod.GET, "HasWeightToday");
+
+        return rp(option);
+    }
 }
