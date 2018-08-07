@@ -16,4 +16,6 @@ export interface Ingredient {
     mangan?: Number;
     sodium?: Number;
     jod?: Number;
+
+    [key: string]: Number | string | undefined;
 }

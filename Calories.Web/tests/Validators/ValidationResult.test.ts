@@ -41,7 +41,7 @@ describe("Validation result tests", function() {
         .toBe(str);
         expect(r.validationErrors.length)
         .toBe(1);
-    })
+    });
 
     it("Can add errors by ValidationError", function() {
         var error = new ValidationError("kek");

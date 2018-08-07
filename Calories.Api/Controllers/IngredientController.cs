@@ -56,6 +56,7 @@ namespace Calories.Api.Controllers
                 });
 
                 await unit.SaveChangesAsync();
+                return Ok();
             }
             return ValidationFailed(); 
         }

@@ -1,5 +1,6 @@
 import React from "react";
 import {WeightAddComponent} from "./WeightAddComponent";
+import { IngredientAddComponent } from "./IngredientAddComponent";
 export class AdderDashboard extends React.Component<AdderDashboard.Props, AdderDashboard.State>
 {
     constructor(props: AdderDashboard.Props)
@@ -13,6 +14,7 @@ export class AdderDashboard extends React.Component<AdderDashboard.Props, AdderD
         return (
             <div className="dashboard adder">
                 <WeightAddComponent />
+                <IngredientAddComponent />
             </div>
         )
     }

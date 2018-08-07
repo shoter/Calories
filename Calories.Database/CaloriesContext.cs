@@ -28,5 +28,12 @@ namespace Calories.Database
 
             optionsBuilder.UseSqlServer(Configuration.Database.ConnectionString);
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Ingredient>()
+                .HasIndex(i => i.Name)
+                .IsUnique();
+        }
     }
 }

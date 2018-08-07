@@ -76,6 +76,7 @@ export class WeightAddComponent extends DashboardComponent<
     if(this.state.hasWeightToday)
     {
       text = "You have weight for today. Keep it up";
+      this.setState({hasWeightToday: true});
     }
 
     return (<div className="hasWeightToday">
