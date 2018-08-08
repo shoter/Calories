@@ -1,6 +1,12 @@
-import { Options, RequestPromise } from "request-promise-native";
+import rp from "request-promise-native";
 import urljoin from "url-join";
 import { HttpMethod } from "./HttpMethod";
+import { resolve } from "url";
+export interface ApiPromise<T> extends Promise<T>
+{
+
+}
+
 export class ApiBase {
   controllerName: string;
   baseUrl: string;
@@ -13,8 +19,8 @@ export class ApiBase {
     return urljoin(this.baseUrl,  "api", this.controllerName, ...parts);
   }
 
-  createBaseOptions(method: HttpMethod, ...urlParts: string[]): Options {
-    let options: Options = {
+  createBaseOptions(method: HttpMethod, ...urlParts: string[]): rp.Options {
+    let options: rp.Options = {
       url: this.getUrl(...urlParts),
       method: method
     };
@@ -23,4 +29,20 @@ export class ApiBase {
 
     return options;
   }
+
+
+
+  createPromiseRequest<T>(options: rp.Options)
+  {
+    return new Promise<T>((resolve, reject) => {
+        rp(options)
+        .then((value:any) => {
+           let t:T = JSON.parse(value); //Hack?
+           resolve(t);
+        })
+        .catch(reject);
+    });
+    
+  } 
+
 }

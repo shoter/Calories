@@ -6,6 +6,7 @@ using Aspnet.Additions.Controllers;
 using Calories.Api.ApiModels.Ingredients;
 using Calories.Database.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,6 +29,17 @@ namespace Calories.Api.Controllers
                 .GetIngredients(ingredientName);
 
             return Ok(ingredient);
+        }
+
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            var ingredients = await unit.IngredientRepository
+                .OrderBy(ing => ing.Name)
+                .ToListAsync();
+
+            return Ok(ingredients);
         }
 
         [HttpPost]

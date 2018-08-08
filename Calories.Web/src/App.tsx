@@ -29,6 +29,7 @@ export default class App extends React.Component
                     <Route Path="/add" component={AdderDashboard}></Route>
                 </Switch>
                 </div>
+                
             </div>
         );
     }

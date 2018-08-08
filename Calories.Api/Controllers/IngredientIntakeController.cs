@@ -19,7 +19,7 @@ namespace Calories.Api.Controllers
             this.unit = unit;
         }
         [HttpPost]
-        public async Task<IActionResult> Post(NewIngredientIntakeModel model)
+        public async Task<IActionResult> Post([FromBody]NewIngredientIntakeModel model)
         {
             if (ModelState.IsValid)
             {
