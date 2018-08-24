@@ -1,0 +1,43 @@
+@import "../defines.scss";
+
+.summary {
+    background-color: $backgroundColor;
+    color: $fontColor;
+    height:100%;
+    padding-left: 0.5rem;
+    padding-top:1rem;
+
+    .title
+    {
+        font-size:large;
+    }
+
+    .ingredientIntakeItem
+    {
+        border: 1px solid darken($fontColor, 10%);
+        padding:0.1rem 0.15rem;
+
+       .main
+       {
+           .kcal
+           {
+               font-size:xx-large;
+               padding-right:0.1rem;
+           }
+           .kcalNoun
+           {
+               font-size:small;
+           }
+           .ingredient
+           {
+                padding-left:0.2rem;
+                font-size:xx-large;
+           }
+       }
+       .date
+       {
+           width:100%;
+           text-align:right;
+       }
+    }
+}

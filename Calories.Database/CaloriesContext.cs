@@ -34,6 +34,9 @@ namespace Calories.Database
             builder.Entity<Ingredient>()
                 .HasIndex(i => i.Name)
                 .IsUnique();
+
+            builder.Entity<IngredientIntake>()
+                .HasKey(i => new { i.ID, i.Date });
         }
     }
 }

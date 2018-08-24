@@ -1,0 +1,19 @@
+.adder {
+    .dashboardComponent {
+        .ingredientIntakeAdd {
+            display: grid;
+            .react-date-picker {
+                input {
+                    color: white;
+                }
+                ::placeholder {
+                    color: white;
+                }
+                line,
+                rect {
+                    stroke: white;
+                }
+            }
+        }
+    }
+}

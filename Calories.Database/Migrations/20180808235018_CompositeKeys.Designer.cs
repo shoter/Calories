@@ -4,14 +4,16 @@ using Calories.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Calories.Database.Migrations
 {
     [DbContext(typeof(CaloriesContext))]
-    partial class CaloriesContextModelSnapshot : ModelSnapshot
+    [Migration("20180808235018_CompositeKeys")]
+    partial class CompositeKeys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,14 +90,14 @@ namespace Calories.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Date");
-
                     b.Property<int>("IngredientID");
+
+                    b.Property<DateTime>("Date");
 
                     b.Property<decimal>("Weight")
                         .HasColumnType("decimal(8,2)");
 
-                    b.HasKey("ID", "Date");
+                    b.HasKey("ID", "IngredientID");
 
                     b.HasIndex("IngredientID");
 

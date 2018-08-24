@@ -1,6 +1,7 @@
 import { CaloriesApiBase } from "./CaloriesApiBase";
 import { HttpMethod } from "./HttpMethod";
 import rp from "request-promise-native";
+import { IngredientIntake } from "../Models/IngredientIntake";
 
 export class IngredientIntakeApi extends CaloriesApiBase {
     constructor() {
@@ -18,4 +19,10 @@ export class IngredientIntakeApi extends CaloriesApiBase {
 
        return  rp(options);
    } 
+
+   getIngredientIntakeForDay(date: Date) : Promise<IngredientIntake[]> {
+       var options = this.createBaseOptions(HttpMethod.GET, date.toUTCString());
+
+       return this.createPromiseRequest<IngredientIntake[]>(options);
+   }
 }

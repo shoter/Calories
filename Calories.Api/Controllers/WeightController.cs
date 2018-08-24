@@ -38,9 +38,6 @@ namespace Calories.Api.Controllers
         {
             Weight weight = await unit.WeightRepository.GetWeightAtSpecifiedDate(date);
 
-            if (weight == null)
-                return NotFound();
-
             return Ok(weight);
         }
 

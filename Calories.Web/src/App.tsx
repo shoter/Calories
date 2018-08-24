@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch } from "react-router-dom";
 import About from "./About";
 import { Dashboard } from "./DashBoard/Dashboard"; 
 import {AdderDashboard} from "./Adder/AdderDashboard";
+import { Summary } from "./Summary/Summary";
 
 export default class App extends React.Component
 {
@@ -29,6 +30,7 @@ export default class App extends React.Component
                     <Route Path="/add" component={AdderDashboard}></Route>
                 </Switch>
                 </div>
+                <Summary />
                 
             </div>
         );

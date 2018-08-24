@@ -23,4 +23,10 @@ export class WeightApi extends CaloriesApiBase {
 
         return rp(option);
     }
+
+    GetWeight(date: Date) : Promise<Number | null> {
+        let option: rp.Options = this.createBaseOptions(HttpMethod.GET, date.toUTCString());
+
+        return this.createPromiseRequest<Number | null>(option);
+    }
 }

@@ -84,11 +84,18 @@ export class IngredientIntakeAddComponent extends DashboardComponent<DashboardCo
             date: date
         });
     }
+
+    onSelect = (value: string) => {
+        this.setState({
+            selectedIngredientId: Number(value)
+        });
+    }
     renderComponent() :JSX.Element
     {
         return (<div className="ingredientIntakeAdd">
         <MySelect
             options={this.state.ingredients}
+            onSelect={this.onSelect}
         />
         <NumberInput placeholder="weight (grams)" value={this.state.weight} onNumberChange={this.onNumberChange} />
         <DatePicker onChange={this.onDateChange} value={this.state.date} />

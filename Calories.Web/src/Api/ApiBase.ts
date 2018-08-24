@@ -19,8 +19,8 @@ export class ApiBase {
     return urljoin(this.baseUrl,  "api", this.controllerName, ...parts);
   }
 
-  createBaseOptions(method: HttpMethod, ...urlParts: string[]): rp.Options {
-    let options: rp.Options = {
+  createBaseOptions(method: HttpMethod, ...urlParts: string[]): rp.OptionsWithUrl {
+    let options: rp.OptionsWithUrl = {
       url: this.getUrl(...urlParts),
       method: method
     };

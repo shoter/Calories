@@ -1,7 +1,9 @@
 ﻿using Calories.Data;
+using Calories.Database.Models.IngredientIntakes;
 using Common.Standard.EntityFramework.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +23,22 @@ namespace Calories.Database.Repositories
                 .Skip(pageSize * pageNumber)
                 .Take(pageSize)
                 .ToListAsync();
+        }
+
+        public async Task<List<IngredientIntakeSummary>> GetIntakesForDay(DateTime day)
+        {
+            return await OrderByDescending(intake => intake.Date)
+                .Where(i =>
+                i.Date.Year == day.Year && i.Date.DayOfYear == day.DayOfYear)
+                .Select(i => new IngredientIntakeSummary()
+                {
+                    Calories = i.Weight / 100m * i.Ingredient.Calories,
+                    Date = i.Date,
+                    Weight = i.Weight,
+                    Id = i.ID,
+                    IngredientId = i.IngredientID,
+                    IngredientName = i.Ingredient.Name
+                }).ToListAsync();
         }
     }
 }

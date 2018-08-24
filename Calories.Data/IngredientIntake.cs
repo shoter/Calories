@@ -10,7 +10,6 @@ namespace Calories.Data
     public class IngredientIntake : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
         public long ID { get; set; }
         [ForeignKey(nameof(Ingredient))]
         public int IngredientID { get; set; }

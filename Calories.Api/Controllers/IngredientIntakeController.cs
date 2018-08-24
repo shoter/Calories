@@ -45,5 +45,15 @@ namespace Calories.Api.Controllers
 
             return Ok(intakes);
         }
+
+        [HttpGet("Get")]
+        [Route("{day:DateTime}")]
+        public async Task<IActionResult> GetIntakeForDay(DateTime day)
+        {
+            var intakes = await unit.IngredientIntakeRepository
+                .GetIntakesForDay(day);
+
+            return Ok(intakes);
+        }
     }
 }
