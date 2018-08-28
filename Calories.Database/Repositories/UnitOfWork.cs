@@ -19,6 +19,7 @@ namespace Calories.Database.Repositories
         public IExerciseRepository ExerciseRepository { get; private set; }
         public IExerciseTypeRepository ExerciseTypeRepository { get; set; }
         public IExerciseTypeRuleRepository ExerciseTypeRuleRepository { get; private set; }
+        public ISizeTypeRepository SizeTypeRepository { get; private set; }
 
         public UnitOfWork(CaloriesContext context)
         {
@@ -28,6 +29,7 @@ namespace Calories.Database.Repositories
             ExerciseRepository = new ExerciseRepository(context);
             ExerciseTypeRuleRepository = new ExerciseTypeRuleRepository(context);
             ExerciseTypeRepository = new ExerciseTypeRepository(context);
+            SizeTypeRepository = new SizeTypeRepository(context);
             this.context = context;
 
         }

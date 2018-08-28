@@ -2,6 +2,7 @@ export interface Ingredient {
     id : Number;
     name: string;
     calories: Number;
+    sizeTypeID: Number;
     proteins?: Number;
     fat?: Number;
     carbonhydrates?: Number;

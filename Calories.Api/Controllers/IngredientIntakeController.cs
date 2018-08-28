@@ -1,6 +1,8 @@
 ﻿using Aspnet.Additions.Controllers;
 using Calories.Api.ApiModels.IngredientIntakes;
+using Calories.Data.Enums;
 using Calories.Database.Repositories;
+using Calories.Services.Intakes;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,9 +25,13 @@ namespace Calories.Api.Controllers
         {
             if (ModelState.IsValid)
             {
+                var calc = new IngredientIntakeCalorieCalculator();
+                var ing = await unit.IngredientRepository.FirstAsync(i => i.ID == model.IngredientID);
+
                 unit.IngredientIntakeRepository.Add(new Data.IngredientIntake()
                 {
                     Date = model.Date.Value,
+                    Calories = calc.Calculate(model.Weight.Value, ing.Calories, (SizeTypeEnum)ing.SizeTypeID),
                     IngredientID = model.IngredientID.Value,
                     Weight = model.Weight.Value
                 });

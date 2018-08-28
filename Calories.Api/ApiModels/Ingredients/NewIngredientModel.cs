@@ -12,6 +12,8 @@ namespace Calories.Api.ApiModels.Ingredients
         public string Name { get; set; }
         [Required]
         public decimal? Calories { get; set; }
+        [Required]
+        public int? SizeTypeID { get; set; }
 
         public decimal? Proteins { get; set; }
         public decimal? Fat { get; set; }

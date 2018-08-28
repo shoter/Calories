@@ -18,7 +18,7 @@ body
 
             display: grid;
             grid-template-columns: auto 11fr 3fr;
-
+            grid-template-rows: 1fr; 
             .work
             {
                 background-color: $workBackgroundColor;

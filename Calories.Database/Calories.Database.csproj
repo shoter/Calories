@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20180828194423_SizeType.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Repositories\IUnitOfWork.cs~RF18f7d78.TMP" />
   </ItemGroup>
 

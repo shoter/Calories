@@ -6,7 +6,8 @@ namespace Dashboard
         weight? : number,
         caloriesIntakeLeft: number,
         exerciseCalories: number
-        date: Date
+        date: Date,
+        text: string
     }
     export interface Props
     {

@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <None Remove="Exercise.cs~RF1526267.TMP" />
+    <None Remove="IngredientSizeType.cs~RF23f5df.TMP" />
+    <None Remove="SizeType.cs~RF24e262.TMP" />
   </ItemGroup>
 
   <ItemGroup>

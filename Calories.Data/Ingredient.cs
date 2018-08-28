@@ -16,6 +16,9 @@ namespace Calories.Data
         public int ID { get; set; }
         [MaxLength(100)]
         public string Name { get; set; }
+        [ForeignKey(nameof(SizeType))]
+        public int SizeTypeID { get; set; }
+        public SizeType SizeType { get; set; }
 
         [DecimalPrecision(10, 2)]
         public decimal Calories { get; set; }

@@ -25,15 +25,34 @@ export class Dashboard extends React.Component<Dashboard.Props, Dashboard.State>
                 caloriesIntakeLeft: sum.allowedIntakeLeft,
                 exerciseCalories: sum.exerciseCalories,
                 weight: sum.weight,
-                date: new Date()
+                date: new Date(),
+                text: "Today"
+            })
+        });
+        var yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        this.dayApi.GetSummary(yesterday)
+        .then((sum : DaySummary) => {
+            this.addNewSummary({
+                calories: sum.calories,
+                caloriesIntakeLeft: sum.allowedIntakeLeft,
+                exerciseCalories: sum.exerciseCalories,
+                weight: sum.weight,
+                date: new Date(),
+                text: "Yesterday"
             })
         });
     }
 
     addNewSummary(summary: Dashboard.DaySummary) {
         this.setState((prevState: Dashboard.State) => {
+            var newSummaries = prevState.summaries.concat(summary);
+            newSummaries = newSummaries.sort((a: Dashboard.DaySummary, b: Dashboard.DaySummary) => {
+                return a.date.getDate() - b.date.getDate();
+            })
             return {
-                summaries: prevState.summaries.concat(summary)
+                summaries: newSummaries
             }
         })
     }
@@ -48,7 +67,9 @@ export class Dashboard extends React.Component<Dashboard.Props, Dashboard.State>
             components.push(<DayOverview calories={sum.calories} weight={sum.weight}
                 allowedIntakeLeft = {sum.caloriesIntakeLeft} 
                 exerciseCalories = {sum.exerciseCalories}
-                date={sum.date} />);
+                date={sum.date}
+                title={sum.text + " Summary"}
+                />);
         })
 
 

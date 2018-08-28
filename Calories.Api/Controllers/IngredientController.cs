@@ -49,6 +49,7 @@ namespace Calories.Api.Controllers
             {
                 unit.IngredientRepository.Add(new Data.Ingredient()
                 {
+                    SizeTypeID = ingredient.SizeTypeID.Value,
                     Calcium = ingredient.Calcium,
                     Calories = ingredient.Calories.Value,
                     Carbonhydrates = ingredient.Carbonhydrates,

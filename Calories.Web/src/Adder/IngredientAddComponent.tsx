@@ -3,10 +3,19 @@ import { Ingredient } from "../Models/Ingredient";
 import { DashboardComponent } from "../DashBoard/DashboardComponent";
 import { IngredientValidator } from "../Validators/Ingredients/IngredientValidator";
 import { IngredientApi } from "../Api/IngredientApi";
+import { SizeType } from "../Models/SizeType";
+import { SizeApi } from "../Api/SizeApi";
+import Select from "react-select";
+import { SelectStyle } from "../Common/SelectStyle";
+import { ValueType, ActionMeta } from "../../node_modules/@types/react-select/lib/types";
 
 namespace IngredientAddComponent {
   export interface Props extends DashboardComponent.Props {}
-  export interface State extends DashboardComponent.State, Ingredient {}
+  export interface State extends DashboardComponent.State
+  {
+      ingredient: Ingredient,
+      sizeTypes: SizeType[]
+  }
 }
 
 function ucfirst(str: string): string {
@@ -24,17 +33,34 @@ export class IngredientAddComponent extends DashboardComponent<
 > {
     validator: IngredientValidator;
     api: IngredientApi;
+    sizeApi: SizeApi;
+
   constructor(props: IngredientAddComponent.Props) {
     super(props);
 
     this.validator = new IngredientValidator();
     this.api = new IngredientApi();
+    this.sizeApi = new SizeApi();
 
     this.state = {
-      id: -1, //unused
-      calories: 0,
-      name: ""
+      ingredient: {
+        id: -1,
+        calories: 0,
+        sizeTypeID: -1,
+        name: ""
+      },
+      sizeTypes: []
     };
+  }
+
+  componentDidMount()
+  {
+    this.sizeApi.GetSizeTypes()
+    .then((sizes: SizeType[]) => {
+      this.setState({
+        sizeTypes: sizes
+      })
+    });
   }
 
   Input = (props: InputProps): JSX.Element => {
@@ -44,19 +70,24 @@ export class IngredientAddComponent extends DashboardComponent<
         var name = target.getAttribute("name");
 
         //@ts-ignore    
-        this.setState({
-            [name as any] : value
-        }); //My dear god... really typescript?
+        this.setState((prevState: IngredientAddComponent.State) => ({
+          ...prevState,
+          ingredient: {
+            ...prevState.ingredient,
+            [name as any]: value
+          }
+        }))
+        //My dear god... really typescript?
     };
 
-    var value = (this.state[props.name] || "").toString();
+    var value = (this.state.ingredient[props.name] || "").toString();
 
     return <input placeholder={ucfirst(props.name)} name={props.name} value={value} onChange={onChange} />;
   }
 
   trySubmitForm = () => 
   {
-      var result = this.validator.validate(this.state);
+      var result = this.validator.validate(this.state.ingredient);
       if(result.isValid())
       {
           this.submitForm();
@@ -72,7 +103,7 @@ export class IngredientAddComponent extends DashboardComponent<
   {
         var state = this.state;
         this.clearState();
-        this.api.InsertIngredient(state)
+        this.api.InsertIngredient(state.ingredient)
         .then(() => {
             alert("Udao sie!1");
         }).catch(() => {
@@ -83,7 +114,8 @@ export class IngredientAddComponent extends DashboardComponent<
 
   clearState()
   {
-    this.setState({
+    this.setState({ ingredient: {
+        sizeTypeID: -1,
         calcium: undefined,
         calories: 0,
         carbonhydrates: undefined,
@@ -101,7 +133,21 @@ export class IngredientAddComponent extends DashboardComponent<
         roughage: undefined,
         sodium: undefined,
         zinc: undefined
-    });
+    }});
+  }
+
+  onSizeTypeSelect= (sizeType: ValueType<SizeType>, action: ActionMeta) => {
+     if(sizeType && !(sizeType instanceof Array)) 
+     {
+       
+       this.setState((prevState : IngredientAddComponent.State) => ({
+         ...prevState,
+         ingredient: {
+           ...prevState.ingredient,
+           sizeTypeID: sizeType.id
+         }
+       }));
+     }
   }
 
   renderComponent(): JSX.Element {
@@ -109,6 +155,13 @@ export class IngredientAddComponent extends DashboardComponent<
       <div className="ingredientAdd">
         <this.Input name="name" />
         <this.Input name="calories" />
+        <Select<SizeType>
+            options={this.state.sizeTypes}
+            getOptionLabel={(t:SizeType) => t.name}
+            getOptionValue={(t:SizeType)=>t.id.toString()}
+            styles={SelectStyle}
+            onChange={this.onSizeTypeSelect}
+            />
         <this.Input name="proteins" />
         <this.Input name="fat" />
         <this.Input name="carbonhydrates" />

@@ -15,6 +15,7 @@ namespace Calories.Database.Repositories
         IExerciseRepository ExerciseRepository { get; }
         IExerciseTypeRuleRepository ExerciseTypeRuleRepository { get; }
         IExerciseTypeRepository ExerciseTypeRepository { get; }
+        ISizeTypeRepository SizeTypeRepository { get; }
 
         Task<int> SaveChangesAsync();
     }

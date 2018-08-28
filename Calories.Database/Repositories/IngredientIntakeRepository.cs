@@ -32,7 +32,7 @@ namespace Calories.Database.Repositories
                 i.Date.Year == day.Year && i.Date.DayOfYear == day.DayOfYear)
                 .Select(i => new IngredientIntakeSummary()
                 {
-                    Calories = i.Weight / 100m * i.Ingredient.Calories,
+                    Calories = i.Calories,
                     Date = i.Date,
                     Weight = i.Weight,
                     Id = i.ID,

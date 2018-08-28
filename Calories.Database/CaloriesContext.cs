@@ -18,6 +18,7 @@ namespace Calories.Database
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<ExerciseType> ExerciseTypes { get; set; }
         public DbSet<ExerciseTypeRule> ExerciseTypeRules { get; set; }
+        public DbSet<SizeType> SizeTypes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -17,5 +17,7 @@ namespace Calories.Data
         public DateTime Date { get; set; }
         [DecimalPrecision(8,2)]
         public decimal Weight { get; set; }
+        [DecimalPrecision(9,3)]
+        public decimal Calories { get; set; }
     }
 }

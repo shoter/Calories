@@ -4,14 +4,16 @@ using Calories.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Calories.Database.Migrations
 {
     [DbContext(typeof(CaloriesContext))]
-    partial class CaloriesContextModelSnapshot : ModelSnapshot
+    [Migration("20180828194817_SizeType")]
+    partial class SizeType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,8 +122,6 @@ namespace Calories.Database.Migrations
                     b.Property<decimal?>("Roughage")
                         .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("SizeTypeID");
-
                     b.Property<decimal?>("Sodium")
                         .HasColumnType("decimal(14,8)");
 
@@ -134,8 +134,6 @@ namespace Calories.Database.Migrations
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
 
-                    b.HasIndex("SizeTypeID");
-
                     b.ToTable("Ingredients");
                 });
 
@@ -146,9 +144,6 @@ namespace Calories.Database.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Date");
-
-                    b.Property<decimal>("Calories")
-                        .HasColumnType("decimal(9,3)");
 
                     b.Property<int>("IngredientID");
 
@@ -204,14 +199,6 @@ namespace Calories.Database.Migrations
                     b.HasOne("Calories.Data.ExerciseType", "ExerciseType")
                         .WithMany()
                         .HasForeignKey("ExerciseTypeID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Calories.Data.Ingredient", b =>
-                {
-                    b.HasOne("Calories.Data.SizeType", "SizeType")
-                        .WithMany()
-                        .HasForeignKey("SizeTypeID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
