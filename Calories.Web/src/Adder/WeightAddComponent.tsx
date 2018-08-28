@@ -11,9 +11,11 @@ export class WeightAddComponent extends DashboardComponent<
   };
 
    api : WeightApi;
+   isAlive: boolean;
 
   constructor(props: WeightAddComponent.Props) {
     super(props);
+    this.isAlive = false;
     this.state = {
       weight: -1,
       weightInput : "",
@@ -60,10 +62,11 @@ export class WeightAddComponent extends DashboardComponent<
   }
 
   componentDidMount() {
+    this.isAlive = true;
     this.api.HasWeightToday()
     .then((value : any) => {
       let hasWeight: Boolean = JSON.parse(value);
-      if(hasWeight)
+      if(hasWeight && this.isAlive)
         this.setState({
           hasWeightToday: true
         });
@@ -71,12 +74,15 @@ export class WeightAddComponent extends DashboardComponent<
     });
   }
 
+  componentWillUnmount() {
+    //this.isAlive = false;
+  }
+
   HasWeightToday = (): JSX.Element => {
     let text = "You have not weighted yourself today";
     if(this.state.hasWeightToday)
     {
       text = "You have weight for today. Keep it up";
-      this.setState({hasWeightToday: true});
     }
 
     return (<div className="hasWeightToday">

@@ -16,11 +16,18 @@ namespace Calories.Database.Repositories
 
         public IIngredientIntakeRepository IngredientIntakeRepository { get; private set; }
 
+        public IExerciseRepository ExerciseRepository { get; private set; }
+        public IExerciseTypeRepository ExerciseTypeRepository { get; set; }
+        public IExerciseTypeRuleRepository ExerciseTypeRuleRepository { get; private set; }
+
         public UnitOfWork(CaloriesContext context)
         {
             WeightRepository = new WeightRepository(context);
             IngredientRepository = new IngredientRepository(context);
             IngredientIntakeRepository = new IngredientIntakeRepository(context);
+            ExerciseRepository = new ExerciseRepository(context);
+            ExerciseTypeRuleRepository = new ExerciseTypeRuleRepository(context);
+            ExerciseTypeRepository = new ExerciseTypeRepository(context);
             this.context = context;
 
         }

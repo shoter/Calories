@@ -38,7 +38,7 @@ namespace Calories.Api.Controllers
         {
             Weight weight = await unit.WeightRepository.GetWeightAtSpecifiedDate(date);
 
-            return Ok(weight);
+            return Ok(weight?.Value);
         }
 
         [HttpPost]

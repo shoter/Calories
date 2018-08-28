@@ -3,7 +3,9 @@ namespace DayOverview
     export interface Props extends DashboardComponent.Props
     {
         calories: Number;
-        weight: Number;
+        allowedIntakeLeft: Number;
+        exerciseCalories: Number;
+        weight?: Number;
         date: Date;
     }
 }

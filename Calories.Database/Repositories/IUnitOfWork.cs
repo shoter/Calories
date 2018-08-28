@@ -12,6 +12,9 @@ namespace Calories.Database.Repositories
         IWeightRepository WeightRepository { get; }
         IIngredientRepository IngredientRepository { get; }
         IIngredientIntakeRepository IngredientIntakeRepository { get; }
+        IExerciseRepository ExerciseRepository { get; }
+        IExerciseTypeRuleRepository ExerciseTypeRuleRepository { get; }
+        IExerciseTypeRepository ExerciseTypeRepository { get; }
 
         Task<int> SaveChangesAsync();
     }

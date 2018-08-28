@@ -13,11 +13,13 @@ export class Summary extends React.Component<{}, SummaryState>
 {
     api: IngredientIntakeApi;
     weightApi: WeightApi;
+    isAlive: boolean;
     constructor(props: {})
     {
         super(props)
         this.api = new IngredientIntakeApi();
         this.weightApi = new WeightApi();
+        this.isAlive = false;
 
         this.state = {
             intakes: []
@@ -25,23 +27,29 @@ export class Summary extends React.Component<{}, SummaryState>
     }
 
     componentDidMount() {
+        this.isAlive = true;
         this.api.getIngredientIntakeForDay(new Date())
         .then( (intakes: IngredientIntake[]) => {
+            if(this.isAlive)
             this.setState({intakes:intakes})
         });
 
         this.weightApi.GetWeight(new Date()).then((weight: Number | null) => {
-            if(weight !== null)
+            if(weight !== null && this.isAlive)
                 this.setState({weight:weight});
         })
+    }
+
+    componentWillUnmount() {
+        //this.isAlive = false;
     }
 
     TodayWeight = () => {
         if(this.state.weight === undefined)
         return null;
-
+        
         return (<div className="weight">
-            Today: {this.state.weight} kg
+            Today: {this.state.weight.toString()} kg
         </div>)
     }
 

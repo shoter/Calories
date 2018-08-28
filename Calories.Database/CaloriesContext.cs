@@ -15,7 +15,10 @@ namespace Calories.Database
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<IngredientIntake> IngredientIntakes { get; set; }
         public DbSet<Weight> Weights { get; set; }
-        
+        public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<ExerciseType> ExerciseTypes { get; set; }
+        public DbSet<ExerciseTypeRule> ExerciseTypeRules { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured)
@@ -37,6 +40,10 @@ namespace Calories.Database
 
             builder.Entity<IngredientIntake>()
                 .HasKey(i => new { i.ID, i.Date });
+
+            builder.Entity<ExerciseType>()
+                .HasIndex(i => i.Name)
+                .IsUnique();
         }
     }
 }

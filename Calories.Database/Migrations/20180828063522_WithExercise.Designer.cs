@@ -4,14 +4,16 @@ using Calories.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Calories.Database.Migrations
 {
     [DbContext(typeof(CaloriesContext))]
-    partial class CaloriesContextModelSnapshot : ModelSnapshot
+    [Migration("20180828063522_WithExercise")]
+    partial class WithExercise
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,18 +60,6 @@ namespace Calories.Database.Migrations
                         .HasFilter("[Name] IS NOT NULL");
 
                     b.ToTable("ExerciseTypes");
-                });
-
-            modelBuilder.Entity("Calories.Data.ExerciseTypeRule", b =>
-                {
-                    b.Property<int>("ExerciseTypeID");
-
-                    b.Property<decimal>("CaloriesModifier")
-                        .HasColumnType("decimal(10,5)");
-
-                    b.HasKey("ExerciseTypeID");
-
-                    b.ToTable("ExerciseTypeRules");
                 });
 
             modelBuilder.Entity("Calories.Data.Ingredient", b =>
@@ -172,14 +162,6 @@ namespace Calories.Database.Migrations
                 });
 
             modelBuilder.Entity("Calories.Data.Exercise", b =>
-                {
-                    b.HasOne("Calories.Data.ExerciseType", "ExerciseType")
-                        .WithMany()
-                        .HasForeignKey("ExerciseTypeID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Calories.Data.ExerciseTypeRule", b =>
                 {
                     b.HasOne("Calories.Data.ExerciseType", "ExerciseType")
                         .WithMany()

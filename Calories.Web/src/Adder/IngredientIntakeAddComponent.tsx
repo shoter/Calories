@@ -7,10 +7,15 @@ import { NumberInput } from "../CommonComponents/NumberInput";
 import { ValidationResult } from "../Validators/ValidationResult";
 import { IngredientIntakeApi } from "../Api/IngredientIntakeApi";
 import DatePicker from "react-date-picker";
+import Select from "react-select";
+import { ActionMeta, ValueType } from "../../node_modules/@types/react-select/lib/types";
+import { SelectStyle } from "../Common/SelectStyle";
+
+
 
 interface IngredientIntakeAddComponentState extends DashboardComponent.State
 {
-    ingredients: MySelect.Option[],
+    ingredients: Ingredient[],
     selectedIngredientId? : Number,
     weight?: Number,
     date? :Date
@@ -24,11 +29,13 @@ export class IngredientIntakeAddComponent extends DashboardComponent<DashboardCo
 
     ingredientApi: IngredientApi;
     ingredientIntakeApi: IngredientIntakeApi;
+    isAlive: boolean;
     constructor(props: DashboardComponent.Props)
     {
         super(props);
         this.ingredientApi = new IngredientApi();
         this.ingredientIntakeApi = new IngredientIntakeApi();
+        this.isAlive = true;
         this.state = {
             ingredients: [],
             selectedIngredientId: undefined,
@@ -37,15 +44,18 @@ export class IngredientIntakeAddComponent extends DashboardComponent<DashboardCo
     }
 
     componentDidMount() {
+        this.isAlive = true;
         this.ingredientApi.GetAllIngredients()
         .then((ingredients) => {
-            this.setState({
-                ingredients: ingredients.map<MySelect.Option>(ingredient => ({
-                    text: ingredient.name,
-                    value: ingredient.id.toString()
-                }))
-            });
+            if(this.isAlive)
+                this.setState({
+                    ingredients: ingredients
+                });
         });
+    }
+
+    componentWillUnmount() {
+        this.isAlive = false;
     }
 
     onNumberChange = (number? :Number) => {
@@ -85,17 +95,22 @@ export class IngredientIntakeAddComponent extends DashboardComponent<DashboardCo
         });
     }
 
-    onSelect = (value: string) => {
+    onSelect = (ingredient: ValueType<Ingredient>, action: ActionMeta ) => {
+
+        if(ingredient && !(ingredient instanceof Array))
         this.setState({
-            selectedIngredientId: Number(value)
+            selectedIngredientId: ingredient.id
         });
     }
     renderComponent() :JSX.Element
     {
         return (<div className="ingredientIntakeAdd">
-        <MySelect
+        <Select<Ingredient>
             options={this.state.ingredients}
-            onSelect={this.onSelect}
+            getOptionValue={(i:Ingredient) => {return i.id.toString()}}
+            getOptionLabel={(i:Ingredient) => {return i.name}}
+            onChange={this.onSelect}
+            styles={SelectStyle}
         />
         <NumberInput placeholder="weight (grams)" value={this.state.weight} onNumberChange={this.onNumberChange} />
         <DatePicker onChange={this.onDateChange} value={this.state.date} />

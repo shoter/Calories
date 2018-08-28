@@ -33,11 +33,19 @@ export class DayOverview extends DashboardComponent<DayOverview.Props>
 
     renderComponent() : JSX.Element 
     {
+        var weight : JSX.Element | null = 
+        (this.props.weight === undefined ? null :
+            (<Stat text="Weight: " value={this.props.weight + " kg"} />));
+
+
         return (
             <div className="dayOverview">    
                 <Stat text="Date: " value={this.props.date.toDateString()} />
                 <Stat text="Calories: " value={this.props.calories.toString()} />
-                <Stat text="Weight: " value={this.props.weight + " kg"} />
+                <Stat text="Calories intake left: " value={this.props.allowedIntakeLeft.toString()} />
+                <Stat text="Exercise calories: " value={this.props.exerciseCalories.toString()} />
+                {weight}
+
             </div>
         )
     }
