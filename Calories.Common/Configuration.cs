@@ -14,7 +14,8 @@ namespace Calories.Common
         {
             var configBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile("mysql.json", optional: true);
 
             configuration = configBuilder.Build();
         }

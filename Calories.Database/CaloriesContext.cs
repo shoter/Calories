@@ -27,10 +27,6 @@ namespace Calories.Database
                 base.OnConfiguring(optionsBuilder);
                 return;
             }
-
-            throw new Exception(Configuration.Database.ConnectionString);
-
-            optionsBuilder.UseSqlServer(Configuration.Database.ConnectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
