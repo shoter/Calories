@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./scripts/test.js",
-    "start": "webpack-dev-server --open",
     "dev-server": "webpack-dev-server --progress --hot --inline --color --config ./webpack.dev.config.js",
     "dev": "webpack --watch --progress --color --config ./webpack.dev.config.js",
-    "compile": "webpack --config ./webpack.production.config.js"
+    "compile": "webpack --config ./webpack.config.js"
   },
   "keywords": [
     "calories",
