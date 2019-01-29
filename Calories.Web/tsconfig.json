@@ -58,6 +58,8 @@
     "exclude" :[
         "./node_modules/*",
         "./typescript-compiled/*",
+        "./build/typescript-compiled/*",
+        "./buid/*",
         "./tests/*",
         "./tests-compiled/*"
     ]
