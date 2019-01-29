@@ -18,7 +18,7 @@ namespace Calories.Database
             builder.UseMySql(connectionString,
                 options =>
                 {
-                    options.ServerVersion(new Version(15, 1), ServerType.MariaDb);
+                    options.ServerVersion(new Version(8, 0, 13), ServerType.MySql);
                 });
             return new CaloriesContext(builder.Options);
         }

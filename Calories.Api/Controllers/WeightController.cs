@@ -6,7 +6,9 @@ using Aspnet.Additions.Controllers;
 using Aspnet.Additions.Models.Errors;
 using Calories.Api.ApiModels.Weights;
 using Calories.Data;
+using Calories.Database.Models.Weights;
 using Calories.Database.Repositories;
+using Common.Standard.Dates;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -66,6 +68,17 @@ namespace Calories.Api.Controllers
             if (await unit.WeightRepository.HasWeightAtDay(DateTime.Now))
                 return Ok(true);
             return Ok(false);
+        }
+
+        [HttpGet]
+        [Route("{startDate:DateTime}/{endDate:DateTime}")]
+        public async Task<IActionResult> GetWeightBetween(DateTime startDate, DateTime endDate)
+        {
+            IEnumerable<DayWeight> weights = (await unit.WeightRepository.GetWeightBetween(new DayPoint(startDate), new DayPoint(endDate)))
+                .OrderBy(w => w.DayPoint);
+                
+
+            return Json(new WeightBetweenViewModel(weights));
         }
 
 

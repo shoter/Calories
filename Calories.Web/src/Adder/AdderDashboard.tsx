@@ -3,9 +3,9 @@ import {WeightAddComponent} from "./WeightAddComponent";
 import { IngredientAddComponent } from "./IngredientAddComponent";
 import { IngredientIntakeAddComponent } from "./IngredientIntakeAddComponent";
 import { ExerciseAddComponent } from "./ExerciseAddComponent";
-export class AdderDashboard extends React.Component<AdderDashboard.Props, AdderDashboard.State>
+export class AdderDashboard extends React.Component
 {
-    constructor(props: AdderDashboard.Props)
+    constructor(props: {})
     {
         super(props);
 
