@@ -21,11 +21,11 @@ namespace Calories.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{day:datetime}")]
-        public async Task<ActionResult> DaySummary(DateTime day)
+        [Route("{summaryDate:datetime}")]
+        public async Task<ActionResult> DaySummary(DateTime summaryDate)
         {
-            var intakes = await unit.IngredientIntakeRepository.GetIntakesForDay(day);
-            var exercises = await unit.ExerciseRepository.GetExercisesForDayAsync(day);
+            var intakes = await unit.IngredientIntakeRepository.GetIntakesForDay(summaryDate);
+            var exercises = await unit.ExerciseRepository.GetExercisesForDayAsync(summaryDate);
 
             decimal allowedIntake = 2200m;
             allowedIntake += exercises.Sum(e => e.CountedCalories) - intakes.Sum(i => i.Calories);
@@ -33,7 +33,7 @@ namespace Calories.Api.Controllers
             var model = new DaySummaryModel()
             {
                 Calories = intakes.Sum(i => i.Calories),
-                Weight = (await unit.WeightRepository.GetWeightAtSpecifiedDate(day))?.Value,
+                Weight = (await unit.WeightRepository.GetWeightAtSpecifiedDate(summaryDate))?.Value,
                 AllowedIntakeLeft = allowedIntake,
                 ExerciseCalories = exercises.Sum(e => e.CountedCalories)
 

@@ -35,10 +35,10 @@ namespace Calories.Api.Controllers
             return Json(vm);
         }
 
-        [HttpGet("{date:DateTime}")]
-        public async Task<IActionResult> Get(DateTime date)
+        [HttpGet("{weightDate:DateTime}")]
+        public async Task<IActionResult> Get(DateTime weightDate)
         {
-            Weight weight = await unit.WeightRepository.GetWeightAtSpecifiedDate(date);
+            Weight weight = await unit.WeightRepository.GetWeightAtSpecifiedDate(weightDate);
 
             return Ok(weight?.Value);
         }
