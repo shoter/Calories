@@ -2,3 +2,6 @@
 		path = C-Common
 		url = https://github.com/shoter/C-Common.git
 
+[submodule "Aspnet-core-additions"]
+	path = Aspnet-core-additions
+	url = https://github.com/shoter/Aspnet-core-additions.git
