@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\C#\C-Sharp-Common-Standard\Common.Standard.csproj" />
+    <ProjectReference Include="..\C-Sharp-Common-Standard\Common.Standard.csproj" />
     <ProjectReference Include="..\Calories.Common\Calories.Common.csproj" />
   </ItemGroup>
 

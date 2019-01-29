@@ -21,8 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\C#\aspnet-core-additions\Aspnet.Additions.csproj" />
-    <ProjectReference Include="..\..\..\C#\C-Sharp-Common-Standard\Common.Standard.csproj" />
+    <ProjectReference Include="..\Aspnet-core-additions\Aspnet.Additions.csproj" />
     <ProjectReference Include="..\Calories.Common\Calories.Common.csproj" />
     <ProjectReference Include="..\Calories.Database\Calories.Database.csproj" />
     <ProjectReference Include="..\Calories.Services\Calories.Services.csproj" />

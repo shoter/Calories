@@ -1,7 +1,6 @@
-[submodule "C-Common"]
-		path = C-Common
-		url = https://github.com/shoter/C-Common.git
-
 [submodule "Aspnet-core-additions"]
 	path = Aspnet-core-additions
 	url = https://github.com/shoter/Aspnet-core-additions.git
+[submodule "C-Sharp-Common-Standard"]
+	path = C-Sharp-Common-Standard
+	url = https://github.com/shoter/C-Sharp-Common-Standard.git

@@ -13,11 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calories.Services", "Calori
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calories.Data", "Calories.Data\Calories.Data.csproj", "{23C0F7E0-A15E-415C-A455-73E1D994EFEF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Standard", "..\..\C#\C-Sharp-Common-Standard\Common.Standard.csproj", "{604CEF97-3F0E-4FA3-9005-18B3447176F5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calories.Console", "Calories.Console\Calories.Console.csproj", "{03F4A958-4E18-4C24-86F7-9975043B89E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspnet.Additions", "..\..\C#\aspnet-core-additions\Aspnet.Additions.csproj", "{1D6F3F9D-9937-40BF-905D-81E57BCD50AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspnet.Additions", "Aspnet-core-additions\Aspnet.Additions.csproj", "{3D552E73-F448-4552-9FFB-F3EAF9C06CE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Standard", "C-Sharp-Common-Standard\Common.Standard.csproj", "{730E79E5-619A-4FFB-80AB-2CB9E1D7148F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,24 +56,24 @@ Global
 		{23C0F7E0-A15E-415C-A455-73E1D994EFEF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23C0F7E0-A15E-415C-A455-73E1D994EFEF}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{23C0F7E0-A15E-415C-A455-73E1D994EFEF}.Test|Any CPU.Build.0 = Debug|Any CPU
-		{604CEF97-3F0E-4FA3-9005-18B3447176F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{604CEF97-3F0E-4FA3-9005-18B3447176F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{604CEF97-3F0E-4FA3-9005-18B3447176F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{604CEF97-3F0E-4FA3-9005-18B3447176F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{604CEF97-3F0E-4FA3-9005-18B3447176F5}.Test|Any CPU.ActiveCfg = Debug|Any CPU
-		{604CEF97-3F0E-4FA3-9005-18B3447176F5}.Test|Any CPU.Build.0 = Debug|Any CPU
 		{03F4A958-4E18-4C24-86F7-9975043B89E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{03F4A958-4E18-4C24-86F7-9975043B89E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03F4A958-4E18-4C24-86F7-9975043B89E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03F4A958-4E18-4C24-86F7-9975043B89E0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{03F4A958-4E18-4C24-86F7-9975043B89E0}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{03F4A958-4E18-4C24-86F7-9975043B89E0}.Test|Any CPU.Build.0 = Debug|Any CPU
-		{1D6F3F9D-9937-40BF-905D-81E57BCD50AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D6F3F9D-9937-40BF-905D-81E57BCD50AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D6F3F9D-9937-40BF-905D-81E57BCD50AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D6F3F9D-9937-40BF-905D-81E57BCD50AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D6F3F9D-9937-40BF-905D-81E57BCD50AE}.Test|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D6F3F9D-9937-40BF-905D-81E57BCD50AE}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{3D552E73-F448-4552-9FFB-F3EAF9C06CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D552E73-F448-4552-9FFB-F3EAF9C06CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D552E73-F448-4552-9FFB-F3EAF9C06CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D552E73-F448-4552-9FFB-F3EAF9C06CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D552E73-F448-4552-9FFB-F3EAF9C06CE0}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D552E73-F448-4552-9FFB-F3EAF9C06CE0}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{730E79E5-619A-4FFB-80AB-2CB9E1D7148F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730E79E5-619A-4FFB-80AB-2CB9E1D7148F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730E79E5-619A-4FFB-80AB-2CB9E1D7148F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730E79E5-619A-4FFB-80AB-2CB9E1D7148F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{730E79E5-619A-4FFB-80AB-2CB9E1D7148F}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{730E79E5-619A-4FFB-80AB-2CB9E1D7148F}.Test|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
