@@ -10,6 +10,7 @@ namespace Calories.Api.ApiModels.Weights
     public class DayWeightViewModel
     {
         public decimal Value { get; set; }
+        public decimal Average { get; set; }
         public string DateTime { get; set; }
 
         public DayWeightViewModel(DayWeight dw)

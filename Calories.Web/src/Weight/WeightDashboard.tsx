@@ -34,11 +34,11 @@ export class WeightDashboard extends React.Component<{}, WeightDashboard.State>
 
     componentDidMount()
     {
-        this.updateWeights();
+        this.updateWeights(this.state.startDate, this.state.endDate );
     }
 
-    updateWeights = () => {
-        this.api.GetWeightsBetween(this.state.startDate, this.state.endDate)
+    updateWeights = (startDate: Date, endDate: Date) => {
+        this.api.GetWeightsBetween(startDate, endDate)
         .then((weightBetween: WeightBetween) => {
             this.setState({
                 weights: weightBetween.weights
@@ -60,9 +60,8 @@ refresh = () => {
     startDate.setDate(startDate.getDate() - this.state.daysShown.valueOf());
     this.setState({
         startDate: startDate
-    });
-    console.log(startDate);
-    this.updateWeights();
+    })
+    this.updateWeights(startDate, this.state.endDate);
 }
 
     render()

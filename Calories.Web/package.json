@@ -1,11 +1,11 @@
 {
   "name": "calories.web",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Calories web ",
   "main": "index.js",
   "scripts": {
     "test": "node ./scripts/test.js",
-    "dev-server": "webpack-dev-server --progress --hot --inline --color --config ./webpack.dev.config.js",
+    "dev-server": "webpack-dev-server --port 9080 --progress --hot --inline --color --config ./webpack.dev.config.js",
     "dev": "webpack --watch --progress --color --config ./webpack.dev.config.js",
     "compile": "webpack --config ./webpack.config.js"
   },

@@ -16,6 +16,33 @@ namespace Calories.Api.ApiModels.Weights
             Weights = weights
                 .Select(w => new DayWeightViewModel(w))
                 .ToList();
+
+            decimal sum = 0m;
+
+            int first, count;
+
+            first = count = 0;
+
+            const int maxCount = 14;
+
+            for(int i = 0;i < this.Weights.Count; ++ i)
+            {
+                var w = Weights[i];
+
+                sum += w.Value;
+                count++;
+
+                if(count >= maxCount)
+                {
+                    sum -= Weights[first].Value;
+                    count--;
+                    first++;
+                }
+
+                w.Average = sum / count;
+            }
+
+
         }
     }
 }
