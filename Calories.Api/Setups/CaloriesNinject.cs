@@ -1,6 +1,5 @@
 ﻿using Calories.Api.Others;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc.ViewFeatures.Internal;
 using Microsoft.Extensions.Logging;
 using MissingDIExtensions;
 using Ninject;
@@ -14,6 +13,7 @@ using System.Threading.Tasks;
 using Common.Standard.Ninject;
 using Calories.Database.Repositories;
 using Calories.Database;
+using Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
 
 namespace Calories.Api.Setups
 {

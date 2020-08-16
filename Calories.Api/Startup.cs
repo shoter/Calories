@@ -7,6 +7,7 @@ using Calories.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -34,9 +35,11 @@ namespace Calories.Api
             services.AddRequestScopingMiddleware(() => CNinject.ScopeProvider.Value = new Others.Scope());
             services.AddCustomControllerActivation(CNinject.Resolve);
             services.AddCustomViewComponentActivation(CNinject.Resolve);
+            services.AddControllers();
+
+
 
             services.AddCors();
-            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,8 +57,6 @@ namespace Calories.Api
             .AllowAnyMethod()
             .AllowAnyHeader()
             );
-
-            app.UseMvc();
         }
 
       
