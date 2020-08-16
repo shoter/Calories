@@ -36,9 +36,6 @@ namespace Calories.Api
             services.AddCustomControllerActivation(CNinject.Resolve);
             services.AddCustomViewComponentActivation(CNinject.Resolve);
             services.AddControllers();
-
-
-
             services.AddCors();
         }
 
@@ -57,6 +54,13 @@ namespace Calories.Api
             .AllowAnyMethod()
             .AllowAnyHeader()
             );
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
 
       
