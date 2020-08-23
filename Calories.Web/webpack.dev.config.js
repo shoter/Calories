@@ -1,6 +1,7 @@
 var path = require('path');
 var nodeExternals = require('webpack-node-externals');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require("webpack");
 
 module.exports = {
     mode: "development",
@@ -75,10 +76,15 @@ module.exports = {
                 title: "Calories",
                 template: path.join(__dirname, "src", "index.html")
             },
+            new webpack.DefinePlugin({
+                'process.env.REACT_APP_BACKEND_HOST': JSON.stringify(process.env.REACT_APP_BACKEND_HOST)
+            })
 
         )
     ]
 
 };
+console.log("env");
+console.log(process.env);
 
 //https://github.com/webpack-contrib/mini-css-extract-plugin

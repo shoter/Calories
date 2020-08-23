@@ -5,7 +5,7 @@ services:
         environment: 
             REACT_APP_BACKEND_HOST: "localhost:9999"
         ports:
-            - "9080:9080"
+            - "9080:80"
     mysql:
         build: ./Calories.Database/.
         environment: 
