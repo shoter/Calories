@@ -27,3 +27,6 @@ chrome-user-data
 *.swo
 
 tests-compiled/
+
+# for env variables
+.env
