@@ -5,7 +5,7 @@ services:
             dockerfile: ./Calories.Api/Dockerfile
             context: .
         ports:
-            - 9999:9999
+            - 9999:80
         environment :
             calories_connectionstring: Server=mysql;User ID=calories;Password=${db_password};Database=calories
         depends_on:

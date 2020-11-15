@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -43,6 +44,8 @@ namespace Calories.Api
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             CNinject.RegisterApplicationComponents(app, loggerFactory);
+            CaloriesContext dbContext = CNinject.Kernel.TryGet<CaloriesContext>();
+            dbContext.Database.Migrate();
 
             if (env.IsDevelopment())
             {

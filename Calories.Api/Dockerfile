@@ -15,4 +15,4 @@ COPY --from=build /app .
 EXPOSE 80
 EXPOSE 9999
 #CMD "tail -f /dev/null"
-ENTRYPOINT ["dotnet", "Calories.Api.dll", "--urls=http://localhost:9999/"]
+ENTRYPOINT ["dotnet", "Calories.Api.dll"]
