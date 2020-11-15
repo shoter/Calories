@@ -1,9 +1,22 @@
 version: '3.8'
 services:
+    backend:
+        build: 
+            dockerfile: ./Calories.Api/Dockerfile
+            context: .
+        ports:
+            - 9999:9999
+        environment :
+            calories_connectionstring: Server=mysql;User ID=calories;Password=${db_password};Database=calories
+        depends_on:
+            - frontend
+            - mysql
     frontend:
-        build: ./Calories.Web/.
-        environment: 
-            REACT_APP_BACKEND_HOST: "localhost:9999"
+        build: 
+            dockerfile: ./Dockerfile
+            context: ./Calories.Web/.
+            args:
+                REACT_APP_BACKEND_HOST: "localhost:9999"
         ports:
             - "9080:80"
     mysql:
