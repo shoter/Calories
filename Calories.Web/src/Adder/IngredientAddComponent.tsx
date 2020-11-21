@@ -8,12 +8,13 @@ import { SizeApi } from "../Api/SizeApi";
 import Select from "react-select";
 import { SelectStyle } from "../Common/SelectStyle";
 import { ValueType, ActionMeta } from "../../node_modules/@types/react-select/lib/types";
+import { NewIngredient } from "../Models/NewIngredient";
 
 namespace IngredientAddComponent {
   export interface Props extends DashboardComponent.Props {}
   export interface State extends DashboardComponent.State
   {
-      ingredient: Ingredient,
+      ingredient: NewIngredient,
       sizeTypes: SizeType[]
   }
 }
@@ -44,7 +45,6 @@ export class IngredientAddComponent extends DashboardComponent<
 
     this.state = {
       ingredient: {
-        id: -1,
         calories: 0,
         sizeTypeID: -1,
         name: ""
@@ -121,7 +121,6 @@ export class IngredientAddComponent extends DashboardComponent<
         carbonhydrates: undefined,
         copper: undefined,
         fat: undefined,
-        id: -1,
         iron: undefined,
         jod: undefined,
         magnes: undefined,

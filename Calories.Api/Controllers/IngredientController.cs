@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Aspnet.Additions.Controllers;
@@ -45,6 +46,8 @@ namespace Calories.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]NewIngredientModel ingredient)
         {
+            using var test = new StreamReader(Request.Body);
+            string str = test.ReadToEndAsync().Result;
             if (ModelState.IsValid)
             {
                 unit.IngredientRepository.Add(new Data.Ingredient()

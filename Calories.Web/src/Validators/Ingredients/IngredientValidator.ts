@@ -1,10 +1,11 @@
 import { ValidatorBase } from "../ValidatorBase";
 import { Ingredient } from "../../Models/Ingredient";
 import { ValidationResult } from "../ValidationResult";
+import { NewIngredient } from "../../Models/NewIngredient";
 
 export class IngredientValidator extends ValidatorBase
 {
-    validate(ing: Ingredient) : ValidationResult
+    validate(ing: NewIngredient) : ValidationResult
     {
         let result = ValidationResult.prototype.success;
 

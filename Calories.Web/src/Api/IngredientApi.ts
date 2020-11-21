@@ -3,6 +3,7 @@ import { Ingredient } from "../Models/Ingredient";
 import rp from "request-promise-native";
 import { HttpMethod } from "./HttpMethod";
 import { ApiPromise } from "./ApiBase";
+import { NewIngredient } from "../Models/NewIngredient";
 
 export class IngredientApi extends CaloriesApiBase {
     constructor()
@@ -10,7 +11,7 @@ export class IngredientApi extends CaloriesApiBase {
         super("Ingredient");
     }
 
-    InsertIngredient(ingredient: Ingredient) : rp.RequestPromise
+    InsertIngredient(ingredient: NewIngredient) : rp.RequestPromise
     {
         var options = this.createBaseOptions(HttpMethod.POST);
 
