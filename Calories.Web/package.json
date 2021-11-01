@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./scripts/test.js",
-    "dev-server": "webpack-dev-server --port 9080 --progress --hot --inline --color --config ./webpack.dev.config.js",
+    "dev-server": "webpack-dev-server --port 10000 --progress --hot --inline --color --config ./webpack.dev.config.js",
     "dev": "webpack --watch --progress --color --config ./webpack.dev.config.js",
     "compile": "webpack --config ./webpack.config.js"
   },

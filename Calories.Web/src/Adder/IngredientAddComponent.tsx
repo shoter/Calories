@@ -67,7 +67,16 @@ export class IngredientAddComponent extends DashboardComponent<
     var onChange = (event: ChangeEvent<HTMLInputElement>) => {
         var target = event.target;
         var value :any = target.value;
-        var name = target.getAttribute("name");
+        var name = target.getAttribute("name"); 
+
+
+
+        if(name == "calories")
+        {
+          value = +value;
+        }
+        console.log(name);
+        console.log(value);
 
         //@ts-ignore    
         this.setState((prevState: IngredientAddComponent.State) => ({
@@ -90,6 +99,7 @@ export class IngredientAddComponent extends DashboardComponent<
       var result = this.validator.validate(this.state.ingredient);
       if(result.isValid())
       {
+        console.log(this.state.ingredient.calories); 
           this.submitForm();
       }
       else

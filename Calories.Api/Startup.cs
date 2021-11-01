@@ -53,7 +53,7 @@ namespace Calories.Api
             }
 
             app.UseCors(builder =>
-            builder.WithOrigins("http://localhost:9080", "http://10.144.78.142")
+            builder.WithOrigins("http://localhost:9080", "http://10.144.78.142", "http://localhost:10000")
             .AllowAnyMethod()
             .AllowAnyHeader()
             );
