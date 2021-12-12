@@ -17,7 +17,7 @@ module.exports = {
     module: {
         rules: [{
                 test: /\.tsx?$/,
-                loader: "awesome-typescript-loader",
+                loader: "ts-loader",
                 //https://github.com/TypeStrong/ts-loader/issues/40
                 //loose used to enable hot-reload
                 // loader: 'babel?loose=all!ts-loader',

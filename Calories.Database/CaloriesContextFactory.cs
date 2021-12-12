@@ -14,6 +14,8 @@ namespace Calories.Database
         {
             string connectionString = Environment.GetEnvironmentVariable("calories_connectionstring");
 
+            Console.WriteLine($"Connection string : {connectionString}");
+
             var builder = new DbContextOptionsBuilder<CaloriesContext>();
             builder.UseMySql(connectionString,
                 options =>
