@@ -9,7 +9,7 @@ WORKDIR /app
 COPY . .
 
 RUN yarn
-RUN yarn compile
+RUN export NODE_OPTIONS=--openssl-legacy-provider && yarn compile
 
 FROM nginx:stable
 

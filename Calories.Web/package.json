@@ -46,7 +46,6 @@
     "jest-config": "^23.4.1",
     "net": "^1.0.2",
     "node-run-cmd": "^1.0.1",
-    "node-sass": "^4.14.1",
     "react": "^16.4.1",
     "react-chartjs-2": "^2.7.4",
     "react-date-picker": "^6.11.3",
@@ -67,6 +66,7 @@
   },
   "devDependencies": {
     "@types/yargs": "^17.0.7",
+    "sass": "^1.45.0",
     "ts-loader": "^8.3.0",
     "typescript": "^4.5.3",
     "webpack-cli": "^3.1.0",

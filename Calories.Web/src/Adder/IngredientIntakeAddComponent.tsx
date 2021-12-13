@@ -92,8 +92,13 @@ export class IngredientIntakeAddComponent extends DashboardComponent<
   validateForm(): ValidationResult {
     return ValidationResult.prototype.success;
   }
+  onDateChange = (date: Date | Date[]) : void => {
 
-  onDateChange = (date?: Date) => {
+    if(Array.isArray(date))
+    {
+      return;
+    }
+    
     this.setState({
       date: date
     });
