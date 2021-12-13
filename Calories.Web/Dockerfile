@@ -1,7 +1,7 @@
 FROM node AS build
 
 RUN apt-get update && apt-get install -y \
-  python \
+  python .build-deps make gcc g++ \
   && rm -rf /var/lib/apt/lists/*
 
 
