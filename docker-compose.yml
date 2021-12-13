@@ -5,7 +5,7 @@ services:
             dockerfile: ./Calories.Api/Dockerfile
             context: .
         ports:
-            - 10321:80
+            - 19999:80
         environment :
             calories_connectionstring: Server=10.144.179.91;User ID=calories;Password=calories;Database=calories
         depends_on:
