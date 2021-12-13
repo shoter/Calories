@@ -10,6 +10,7 @@ services:
             calories_connectionstring: Server=10.144.179.91;User ID=calories;Password=calories;Database=calories
         depends_on:
             - frontend
+        restart: always
     frontend:
         build: 
             dockerfile: ./Dockerfile
@@ -18,3 +19,4 @@ services:
                 REACT_APP_BACKEND_HOST: "localhost:10321"
         ports:
             - "9080:80"
+        restart: always
