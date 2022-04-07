@@ -55,7 +55,7 @@
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5",
     "sass-loader": "^7.0.3",
-    "source-map-loader": "^0.2.3",
+    "source-map-loader": "^1.0.0",
     "style-loader": "^0.21.0",
     "tfs": "^1.4.2",
     "tls": "^0.0.1",
