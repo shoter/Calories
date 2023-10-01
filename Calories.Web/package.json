@@ -36,7 +36,7 @@
     "chai-enzyme": "^1.0.0-beta.1",
     "chart.js": "^2.7.3",
     "cheerio": "^1.0.0-rc.2",
-    "css-loader": "^1.0.0",
+    "css-loader": "^5.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "fs": "^0.0.1-security",
