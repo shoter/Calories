@@ -50,7 +50,7 @@
     "react-chartjs-2": "^2.7.4",
     "react-date-picker": "^6.11.3",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^6.0.0",
     "react-select": "^2.0.0",
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5",
